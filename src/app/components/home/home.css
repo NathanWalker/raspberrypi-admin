@@ -1,0 +1,16 @@
+i.home-icon {
+  font-size: 120px;
+  margin: 20px auto;
+}
+
+i.danger-icon {
+  color: #ed6c63;
+}
+
+i.success-icon {
+  color: #97cd76;
+}
+
+i.info-icon {
+  color: #42afe3;
+}

@@ -1,0 +1,22 @@
+<div class="columns">
+  <div class="column is-6">
+    <div class="message is-info shadow">
+      <div class="message-header">
+        RAM Usage
+      </div>
+      <div class="message-body graph-container">
+        <ram-usage [data]="data"></ram-usage>
+      </div>
+    </div>
+  </div>
+  <div class="column is-6">
+    <div class="message is-info shadow">
+      <div class="message-header">
+        Swap Usage
+      </div>
+      <div class="message-body graph-container">
+        <swap-usage [data]="data"></swap-usage>
+      </div>
+    </div>
+  </div>
+</div>

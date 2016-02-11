@@ -1,0 +1,36 @@
+<div class="columns is-multiline">
+  <div class="column is-6" *ngFor="#g of data; #i = index;">
+    <div class="message is-info shadow">
+      <div class="message-header">
+        {{ g.iface }}
+      </div>
+      <div class="message-body">
+        <canvas class="canvas" id="{{ i }}" width="300" height="150"></canvas>
+        <div class="content">
+          <span class="tag is-success is-fullwidth">
+            <span class="is-pulled-left">Received Data:</span> 
+            <span class="is-pulled-right">{{ g.received }}</span>
+          </span>
+        </div>
+        <div class="content">
+          <span class="tag is-danger is-fullwidth">
+            <span class="is-pulled-left">Sent Data:</span> 
+            <span class="is-pulled-right">{{ g.sent }}</span>
+          </span>
+        </div>
+        <div class="content">
+          <span class="tag is-success is-fullwidth">
+            <span class="is-pulled-left">Download Rate:</span> 
+            <span class="is-pulled-right">{{ g.download_speed }}/s</span>
+          </span>
+        </div>
+        <div class="content">
+          <span class="tag is-danger is-fullwidth">
+            <span class="is-pulled-left">Upload Rate:</span> 
+            <span class="is-pulled-right">{{ g.upload_speed }}/s</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

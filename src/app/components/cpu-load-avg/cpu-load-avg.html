@@ -1,0 +1,22 @@
+<canvas class="canvas" id="cpu-load-avg" width="300" height="150"></canvas>
+
+<div class="content">
+  <span class="tag is-success is-medium is-fullwidth">
+    <span class="is-pulled-left">1min:</span> 
+    <span class="is-pulled-right" *ngIf="load">{{ load[1] }}</span>
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-warning is-medium is-fullwidth">
+    <span class="is-pulled-left">5min:</span> 
+    <span class="is-pulled-right" *ngIf="load">{{ load[5] }}</span>
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-danger is-medium is-fullwidth">
+    <span class="is-pulled-left">15min:</span> 
+    <span class="is-pulled-right" *ngIf="load">{{ load[15] }}</span>
+  </span>
+</div>

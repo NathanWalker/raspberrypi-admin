@@ -1,0 +1,5 @@
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 10.10.10.105:22210      10.10.10.100:54213      ESTABLISHED
+tcp        0      0 10.10.10.105:22         10.10.10.100:51265      ESTABLISHED
+tcp6       0      0 10.10.10.105:81         10.10.10.100:54220      ESTABLISHED

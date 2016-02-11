@@ -1,0 +1,63 @@
+<header></header>
+
+<section class="hero is-info shadow">
+  <div class="hero-content">
+    <div class="container">
+      <img src="assets/img/raspberry-pi-logo.png" class="is-block logo-center" alt="Logo">
+      <h1 class="title">
+        {{ osinfo.PRETTY_NAME }}
+      </h1>
+      <h5 class="title is-5" *ngIf="uptime">
+        Uptime {{ uptime | PrettyTime }}
+      </h5>
+    </div>
+  </div>
+</section>
+
+<section class="section mtb10 shadow">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <a class="message is-danger" [routerLink]="['Dashboard']">
+          <div class="message-header">
+            Dashboard
+          </div>
+          <div class="message-body shadow">
+            <i class="fa fa-area-chart is-centered is-block home-icon danger-icon"></i>
+            <h2 class="subtitle is-5 is-centered">
+              View your Raspberry PI Live Data
+            </h2>
+          </div>
+        </a>
+      </div>
+      <div class="column is-4">
+        <a class="message is-success" [routerLink]="['Settings']">
+          <div class="message-header">
+            Settings
+          </div>
+          <div class="message-body shadow">
+            <i class="fa fa-cogs is-centered is-block home-icon success-icon"></i>
+            <h2 class="subtitle is-5 is-centered">
+              Configure your Raspberry PI
+            </h2>
+          </div>
+        </a>
+      </div>
+      <div class="column is-4">
+        <a class="message is-info" [routerLink]="['Users']">
+          <div class="message-header">
+            Users
+          </div>
+          <div class="message-body shadow">
+            <i class="fa fa-users is-centered is-block home-icon info-icon"></i>
+            <h2 class="subtitle is-5 is-centered">
+              Users administration
+            </h2>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer></footer>

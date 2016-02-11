@@ -1,0 +1,42 @@
+<header></header>
+
+<div class="container dashboard">
+  <div class="columns">
+    <div class="column is-3">
+      <nav class="menu bg-white shadow">
+        <p class="menu-heading">
+          Dashboard
+        </p>
+        <a class="menu-block is-active" [routerLink]="['DashboardCpu']">
+          <span class="menu-icon">
+            <i class="fa fa-line-chart"></i>
+          </span>
+          CPU
+        </a>
+        <a class="menu-block" [routerLink]="['DashboardRam']">
+          <span class="menu-icon">
+            <i class="fa fa-pie-chart"></i>
+          </span>
+          Memory
+        </a>
+        <a class="menu-block" [routerLink]="['DashboardStorage']">
+          <span class="menu-icon">
+            <i class="fa fa-hdd-o"></i>
+          </span>
+          Storage
+        </a>
+        <a class="menu-block" [routerLink]="['DashboardNet']">
+          <span class="menu-icon">
+            <i class="fa fa-bars"></i>
+          </span>
+          Network
+        </a>
+      </nav>
+    </div>
+    <div class="column is-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<footer></footer>

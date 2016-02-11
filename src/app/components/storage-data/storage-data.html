@@ -1,0 +1,29 @@
+<table class="table is-bordered is-striped shadow">
+  <thead>
+    <tr>
+      <th>Filesystem</th>
+      <th>Size</th>
+      <th>Used</th>
+      <th>Available</th>
+      <th>Used</th>
+      <th>Mounted on</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="#d of data">
+      <td>{{ d.filesystem }}</td>
+      <td>{{ d.size }}</td>
+      <td>{{ d.used }}</td>
+      <td>{{ d.available }}</td>
+      <td>{{ d.used_percent }}</td>
+      <td>{{ d.mounted_on }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="content">
+  <p class="is-centered small">
+    <i class="fa fa-info"></i>
+    Data is refreshed every 10s.
+  </p>
+</div>

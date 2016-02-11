@@ -1,0 +1,45 @@
+.logo-center {
+  width: 150px;
+  margin: 0 auto 20px auto;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.mtb10 {
+  margin: 15px 0;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+.canvas {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 100%;
+}
+
+.graph-container {
+  min-height: 330px;
+}
+
+.menu-block.router-link-active {
+  background: #fafafa;
+  color: #42afe3;
+}
+
+.menu-block.router-link-active i {
+  color: #42afe3;
+}
+
+p.small {
+  font-size: 10px;
+}
+
+p.small i {
+  font-size: 12px;
+  margin-top: 2px;
+}

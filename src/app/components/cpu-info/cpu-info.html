@@ -1,0 +1,19 @@
+<div class="content">
+  <span class="tag is-success is-medium is-fullwidth" *ngIf="cpuInfo">
+    {{ cpuInfo[0].model }}
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-danger is-medium is-fullwidth">
+    <span class="is-pulled-left">CPU Cores:</span> 
+    <span class="is-pulled-right" *ngIf="cpuInfo">{{ cpuInfo?.length }}</span>
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-info is-medium is-fullwidth">
+    <span class="is-pulled-left">CPU Speed:</span> 
+    <span class="is-pulled-right" *ngIf="cpuInfo">{{ cpuInfo[0].speed }}MHz</span>
+  </span>
+</div>

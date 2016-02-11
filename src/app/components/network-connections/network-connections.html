@@ -1,0 +1,33 @@
+<div class="columns">
+  <div class="column is-12">
+    <div class="message is-info">
+      <div class="message-header">
+        Network connections ({{ data?.length }})
+      </div>
+      <div class="message-body shadow">
+        <table class="table is-bordered is-striped is-narrow shadow">
+          <thead>
+            <tr>
+              <th>Protocol</th>
+              <th>Local Addr</th>
+              <th>Local Port</th>
+              <th>Remote Addr</th>
+              <th>Remote Port</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="#c of data">
+              <td>{{ c.protocol }}</td>
+              <td>{{ c.local_address }}</td>
+              <td>{{ c.local_port }}</td>
+              <td>{{ c.remote_address }}</td>
+              <td>{{ c.remote_port }}</td>
+              <td>{{ c.state }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

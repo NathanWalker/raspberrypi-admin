@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="container">
+    <div class="header-left">
+      <a class="header-item" [routerLink]="['Home']">
+        <img src="assets/img/raspberry-pi-logo.png" alt="Logo">
+      </a>
+    </div>
+
+    <span class="header-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+    <div class="header-right header-menu">
+      <a class="header-tab" [routerLink]="['Dashboard']">
+        Dashboard
+      </a>
+      <a class="header-tab" [routerLink]="['Settings']">
+        Settings
+      </a>
+      <a class="header-tab" [routerLink]="['Users']">
+        Users
+      </a>
+      <a class="header-tab" (click)="logout()">
+        Logout
+      </a>
+    </div>
+  </div>
+</header>

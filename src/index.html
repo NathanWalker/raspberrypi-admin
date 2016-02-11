@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dash</title>
+  <base href="/">
+  {{content-for 'head'}}
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+</head>
+<body>
+  <dash-app>
+    <section class="hero is-fullheight">
+      <div class="hero-content">
+        <div class="container">
+          <img src="/assets/img/raspberry-pi-logo.png" class="logo-center is-block" alt="Logo">
+          <h1 class="title">Loading ...</h1>
+        </div>
+      </div>
+    </section>
+  </dash-app>
+
+  <script src="thirdparty/vendor.js"></script>
+  <script src="thirdparty/libs.js"></script>
+  <script>
+    System.config({
+      packages: {
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        }
+      },
+      map: {
+        'smoothie': 'assets/js/smoothie.js'
+      }
+    });
+    System.import('app.js').then(null, console.error.bind(console));
+  </script>
+</body>
+</html>

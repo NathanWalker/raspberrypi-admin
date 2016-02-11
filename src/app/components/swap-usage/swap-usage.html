@@ -1,0 +1,22 @@
+<canvas class="canvas" id="swap-usage" width="300" height="150"></canvas>
+
+<div class="content">
+  <span class="tag is-success is-medium is-fullwidth">
+    <span class="is-pulled-left">Swap Total:</span> 
+    <span class="is-pulled-right">{{ data?.swap?.total }}MB</span>
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-danger is-medium is-fullwidth">
+    <span class="is-pulled-left">Swap Used:</span> 
+    <span class="is-pulled-right">({{ usedPercentDisplay }}%) {{ data?.swap?.used }}MB</span>
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-warning is-medium is-fullwidth">
+    <span class="is-pulled-left">Swap Free:</span> 
+    <span class="is-pulled-right">({{ freePercentDisplay }}%) {{ data?.swap?.free }}MB</span>
+  </span>
+</div>

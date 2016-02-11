@@ -1,0 +1,40 @@
+<section class="hero is-fullheight">
+  <div class="hero-content">
+    <div class="container">
+      <img src="/assets/img/raspberry-pi-logo.png" class="logo-center is-block" alt="Logo">
+      <h1 class="title">
+        Raspberry PI
+      </h1>
+    </div>
+    <div class="container login-container">
+      <div class="notification is-danger" *ngIf="invalidCredentials">
+        <button class="delete" (click)="closeMessage()"></button>
+        Invalid credentials.
+      </div>
+      <p class="control">
+        <input class="input is-medium is-centered" 
+               type="text" 
+               placeholder="Username" 
+               [(ngModel)]="user.username">
+      </p>
+      <p class="control">
+        <input class="input is-medium is-centered" 
+               type="password" 
+               placeholder="Password"
+               [(ngModel)]="user.password">
+      </p>
+      <p class="control">
+        <button class="button is-success is-fullwidth" 
+                *ngIf="!loading"
+                (click)="login()">
+          Login
+        </button>
+        <button class="button is-success is-fullwidth is-disabled is-loading" 
+                *ngIf="loading">
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <footer></footer>
+</section>

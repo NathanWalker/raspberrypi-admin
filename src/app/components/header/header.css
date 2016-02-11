@@ -1,0 +1,4 @@
+.header-tab.router-link-active {
+  color: #42afe3;
+  border-bottom: 2px solid #42afe3;
+}

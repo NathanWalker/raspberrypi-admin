@@ -1,0 +1,22 @@
+<canvas class="canvas" id="ram-usage" width="300" height="150"></canvas>
+
+<div class="content">
+  <span class="tag is-success is-medium is-fullwidth">
+    <span class="is-pulled-left">RAM Total:</span> 
+    <span class="is-pulled-right">{{ data?.ram?.total }}MB</span>
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-danger is-medium is-fullwidth">
+    <span class="is-pulled-left">RAM Used:</span> 
+    <span class="is-pulled-right">({{ usedPercentDisplay }}%) {{ data?.ram?.used }}MB</span>
+  </span>
+</div>
+
+<div class="content">
+  <span class="tag is-warning is-medium is-fullwidth">
+    <span class="is-pulled-left">RAM Free:</span> 
+    <span class="is-pulled-right">({{ freePercentDisplay }}%) {{ data?.ram?.free }}MB</span>
+  </span>
+</div>
