@@ -43,3 +43,55 @@ p.small i {
   font-size: 12px;
   margin-top: 2px;
 }
+
+i.big-icon {
+  font-size: 120px;
+  margin: 20px auto;
+}
+
+i.danger-icon {
+  color: #ed6c63;
+}
+
+i.success-icon {
+  color: #97cd76;
+}
+
+i.info-icon {
+  color: #42afe3;
+}
+
+.side-menu {
+  margin-top: 30px;
+}
+
+.mtop5 {
+  margin-top: 5px;
+}
+
+.mtop20 {
+  margin-top: 20px;
+}
+
+.mleft10 {
+  margin-left: 10px;
+}
+
+.pad-tag {
+  padding: 10px 10px 32px 10px;
+  line-height: 26px;
+}
+
+.centered {
+  display: block;
+  margin: 0 auto !important;
+}
+
+.centered-top {
+  display: block;
+  margin: 10px auto 0 auto;
+}
+
+.clickable {
+  cursor: pointer;
+}

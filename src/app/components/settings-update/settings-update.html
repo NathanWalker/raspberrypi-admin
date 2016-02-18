@@ -1,0 +1,40 @@
+<div class="message is-info">
+  <div class="message-header">
+    System update
+  </div>
+  <div class="message-body">
+    <h1 class="title is-5" *ngIf="upgradeButton && responseData.length">
+      Available packages to upgrade
+      ({{ responseData?.length }})
+    </h1>
+    <h1 class="title is-5" *ngIf="isDone">
+      Packages successfully installed.
+    </h1>
+    <p>
+      <span class="tag is-success" *ngIf="systemUpdated">Your system is up to date.</span>
+      <span *ngFor="#r of responseData" class="tag is-warning">{{ r }}</span>
+    </p>
+    <div class="mtop20" *ngIf="updateButton || upgradeButton || isDone">
+      <a class="button is-info is-small" *ngIf="updateButton" (click)="update()">
+        Check for new updates
+      </a>
+      <a class="button is-info is-small" [class.is-loading]="isUpgrading" *ngIf="upgradeButton" (click)="upgrade()">
+        Upgrade
+      </a>
+      <a class="button is-success is-small" *ngIf="isDone">
+        Done
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="message is-info">
+  <div class="message-header">
+    Administration update
+  </div>
+  <div class="message-body">
+    <p>
+      <span class="tag is-success">Your web administration interface is up to date.</span>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+eth0|10.10.10.105|10.10.10.255|255.255.255.0|b8:27:eb:49:d7:a2|Ethernet|2623747|4509165|true|true|false|dhcp
+lo|127.0.0.1|255.0.0.0|||Local|36193|36193|true|true|false|static
+wlan0||||02:ab:cd:ef:12:30|Ethernet|0|12117|true|false|true|static

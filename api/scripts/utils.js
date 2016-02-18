@@ -10,6 +10,9 @@ exports.isPI = isPI;
 exports.hasTempSensor = hasTempSensor;
 exports.getOSInfo = getOSInfo;
 exports.getUptime = getUptime;
+exports.commandExists = commandExists;
+exports.install = install;
+exports.purge = purge;
 
 function isLinux() {
   return (/linux/.test(process.platform)) ? true : false;
@@ -58,4 +61,17 @@ function getOSInfo() {
 
 function getUptime() {
   return os.uptime();
+}
+
+function commandExists(cmd) {
+  let output = spawn('hash', [cmd], { encoding: 'utf8' }).output;
+  return output[2] === '' ? true : false;
+}
+
+function install(service) {
+  return spawn('sudo', ['apt-get', 'install', service, '-y']);
+}
+
+function purge(service) {
+  return spawn('sudo', ['apt-get', 'purge', service, '-y']);
 }

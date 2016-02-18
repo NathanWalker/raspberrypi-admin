@@ -1,17 +1,54 @@
 <header></header>
 
-<section class="hero is-danger shadow">
-  <div class="hero-content">
-    <div class="container">
-      <img src="assets/img/raspberry-pi-logo.png" class="is-block logo-center" alt="Logo">
-      <h1 class="title">
-        Settings
-      </h1>
-      <h5 class="title is-5">
-        Configure your Raspberry PI
-      </h5>
+<div class="container side-menu">
+  <div class="columns">
+    <div class="column is-3">
+      <nav class="menu bg-white shadow">
+        <p class="menu-heading">
+          Settings
+        </p>
+        <a class="menu-block is-active" [routerLink]="['SettingsBasic']">
+          <span class="menu-icon">
+            <i class="fa fa-server"></i>
+          </span>
+          Basic settings
+        </a>
+        <a class="menu-block is-active" [routerLink]="['SettingsNetwork']">
+          <span class="menu-icon">
+            <i class="fa fa-wifi"></i>
+          </span>
+          Network settings
+        </a>
+        <a class="menu-block is-active" [routerLink]="['SettingsFirewall']">
+          <span class="menu-icon">
+            <i class="fa fa-fire"></i>
+          </span>
+          Firewall
+        </a>
+        <a class="menu-block is-active" [routerLink]="['SettingsVpn']">
+          <span class="menu-icon">
+            <i class="fa fa-ellipsis-h"></i>
+          </span>
+          OpenVPN
+        </a>
+        <a class="menu-block is-active" [routerLink]="['SettingsUpdate']">
+          <span class="menu-icon">
+            <i class="fa fa-download"></i>
+          </span>
+          Update
+        </a>
+        <a class="menu-block is-active" [routerLink]="['SettingsLogs']">
+          <span class="menu-icon">
+            <i class="fa fa-history"></i>
+          </span>
+          Logs
+        </a>
+      </nav>
+    </div>
+    <div class="column is-9">
+      <router-outlet></router-outlet>
     </div>
   </div>
-</section>
+</div>
 
 <footer></footer>

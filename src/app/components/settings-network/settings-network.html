@@ -1,0 +1,238 @@
+<h3 class="title is-3 is-text-centered">Network Interfaces</h3>
+
+<button class="button centered" (click)="getInterfaces()" *ngIf="!loading">
+  <i class="fa fa-refresh"></i> Refresh
+</button>
+
+<button class="button centered is-loading" *ngIf="loading">
+  <i class="fa fa-refresh"></i> Refresh
+</button>        
+
+<div class="columns is-multiline mtop5" *ngIf="!loading">
+  <div class="column is-6" *ngFor="#i of interfaces; #idx = index;">
+    <div class="message shadow bg-white">
+      <div class="message-header">
+        {{ i.iface }} 
+      </div>
+      <div class="message-body">
+
+        <div class="columns" *ngIf="i.link !== 'Local'">
+          <div class="column is-4">
+            <span class="tag is-small is-info is-fullwidth">Method</span>
+          </div>
+          <div class="column is-8">
+            <p class="control">
+              <span class="select is-small is-text-centered">
+                <select placeholder="Method">
+                  <option value="dhcp">DHCP</option>
+                  <option value="static">Static</option>
+                </select>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-4">
+            <span class="tag is-small is-info is-fullwidth">IP</span>
+          </div>
+          <div class="column is-8">
+            <p class="control">
+              <input class="input is-small is-text-centered" type="text" placeholder="IP" value="{{ i.ip }}">
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-4">
+            <span class="tag is-small is-info is-fullwidth">Broadcast</span>
+          </div>
+          <div class="column is-8">
+            <p class="control">
+              <input class="input is-small is-text-centered" type="text" placeholder="Broadcast" value="{{ i.bcast }}">
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-4">
+            <span class="tag is-small is-info is-fullwidth">Netmask</span>
+          </div>
+          <div class="column is-8">
+            <p class="control">
+              <input class="input is-small is-text-centered" type="text" placeholder="Subnet mask" value="{{ i.netmask }}">
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-4">
+            <span class="tag is-small is-info is-fullwidth">MAC</span>
+          </div>
+          <div class="column is-8">
+            <p class="control">
+              <input class="input is-small is-text-centered" type="text" placeholder="Address" value="{{ i.address }}">
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-4">
+            <span class="tag is-small is-info is-fullwidth">Status</span>
+          </div>
+          <div class="column is-8">
+            <p class="control">
+              <span class="select is-text-centered">
+                <select placeholder="Method">
+                  <option value="up">Up</option>
+                  <option value="down">Down</option>
+                </select>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-4">
+            <span class="tag is-small is-info is-fullwidth">Running</span>
+          </div>
+          <div class="column is-8">
+            <p class="control">
+              <span class="tag is-small is-text-centered is-fullwidth">{{ i.running }}</span>
+            </p>
+          </div>
+        </div>
+
+        <hr/>
+
+        <div class="columns">
+          <div class="column is-12">
+            <button class="button is-warning is-pulled-left" (click)="WLANWizardsButton(i.iface)" *ngIf="i.wlan === 'true'">
+              <i class="fa fa-magic icon"></i>
+              Wizards
+            </button>
+            <button class="button is-success is-pulled-right mleft10">
+              <i class="fa fa-check icon"></i>
+              Save
+            </button>
+            <button class="button is-danger is-pulled-right">
+              <i class="fa fa-close icon"></i>
+              Cancel
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" [class.is-active]="WLANWizardsModal">
+  <div class="modal-background"></div>
+  <div class="modal-container">
+    <div class="modal-content">
+      <div class="box">
+        <div class="content">
+          <h2 class="is-text-centered">
+            <i class="fa fa-wifi icon is-medium"></i>
+            {{ iface }}
+          </h2>
+          <hr/>
+          <div class="tag is-info shadow is-fullwidth pad-tag">
+            Connected to "RPI"
+            <button class="button is-danger is-small is-pulled-right">Disconnect</button>
+          </div>
+          <div class="columns mtop5">
+            <div class="column is-4">
+              <div class="message is-danger shadow clickable" (click)="configureWLANStation(iface)">
+                <div class="message-header is-text-centered">
+                  Connect to Wifi
+                </div>
+                <div class="message-body bg-white">
+                  <i class="fa fa-external-link-square big-icon centered danger-icon"></i>
+                  <p class="is-text-centered">Configure connection</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="message is-success shadow clickable">
+                <div class="message-header is-text-centered">
+                  Access Point
+                </div>
+                <div class="message-body bg-white">
+                  <i class="fa fa-wifi big-icon centered success-icon"></i>
+                  <p class="is-text-centered">Configure AP</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="message is-info shadow clickable">
+                <div class="message-header is-text-centered">
+                  Wifi Repetitor
+                </div>
+                <div class="message-body bg-white">
+                  <i class="fa fa-repeat big-icon centered info-icon"></i>
+                  <p class="is-text-centered">Configure Station + AP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="modal-close" (click)="closeModals()"></button>
+</div>
+
+<div class="modal" [class.is-active]="WLANStationConfig">
+  <div class="modal-background"></div>
+  <div class="modal-container">
+    <div class="modal-content">
+      <div class="box">
+        <div class="content">
+          <h2 class="is-text-centered">Wifi Networks</h2>
+          <p class="is-text-centered" *ngIf="wifiScanning">Scanning for networks ...</p>
+          <p class="is-text-centered" *ngIf="wifiConnecting">
+            Connecting to {{ wifiConnectingWlan.ssid }} via {{ iface }}...
+          </p>
+          <div class="columns is-multiline mtop5" *ngIf="!wifiScanning && !wifiConnecting">
+            <div class="column is-6" *ngFor="#wifi of wifiNetworks; #i = index;">
+              <div class="message shadow bg-white">
+                <div class="message-header is-text-centered">
+                  {{ wifi.ssid }}
+                </div>
+                <div class="message-body">
+                  <span class="tag is-warning is-fullwidth mtop5">
+                    <span class="is-pulled-left">SSID</span> <span class="is-pulled-right">{{ wifi.ssid }}</span>
+                  </span>
+                  <span class="tag is-warning is-fullwidth is-text-centered mtop5">
+                    <span class="is-pulled-left">Address</span> <span class="is-pulled-right">{{ wifi.address }}</span>
+                  </span>
+                  <span class="tag is-warning is-fullwidth is-text-centered mtop5">
+                    <span class="is-pulled-left">Channel</span> <span class="is-pulled-right">{{ wifi.channel }}</span>
+                  </span>
+                  <span class="tag is-warning is-fullwidth is-text-centered mtop5">
+                    <span class="is-pulled-left">Frequency:</span> <span class="is-pulled-right">{{ wifi.frequency }}</span>
+                  </span>
+                  <span class="tag is-warning is-fullwidth is-text-centered mtop5">
+                    <span class="is-pulled-left">Signal:</span> <span class="is-pulled-right">{{ wifi.signalPercent }} ({{ wifi.signalStrength }})</span>
+                  </span>
+                  <span class="tag is-warning is-fullwidth is-text-centered mtop5">
+                    <span class="is-pulled-left">Security:</span> <span class="is-pulled-right">{{ wifi.security }}</span>
+                  </span>
+                  <p class="control mtop5">
+                    <input class="input is-small is-text-centered" 
+                           type="password" 
+                           placeholder="Passphrase" 
+                           *ngIf="wifi.security !== 'Open'"
+                           [(ngModel)]="wifi.passphrase">
+                  </p>
+                  <button class="button is-dark is-outlined centered-top" (click)="wifiConnect(wifi)">Connect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="button is-medium is-info centered" *ngIf="!wifiScanning && !wifiConnecting" (click)="scanWifi(iface)">
+            <i class="fa fa-wifi is-big"></i>
+            Scan
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="modal-close" (click)="closeModals()"></button>
+</div>

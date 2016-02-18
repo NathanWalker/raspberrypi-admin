@@ -1,0 +1,16 @@
+auto lo
+iface lo inet loopback
+
+iface eth0 inet dhcp
+
+mapping wlan0
+map AP apwifi
+map WPA wpawifi
+
+iface apwifi inet static
+address 172.16.100.1
+netmask 255.255.255.0
+metric 2
+
+iface wpawifi inet dhcp
+metric 2

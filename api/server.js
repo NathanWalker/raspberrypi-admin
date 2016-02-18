@@ -25,12 +25,15 @@ server.connection({
 
 server.route(require('./routes/api'));
 
-const io        = require('socket.io')(server.listener);
-const cpu       = require('./scripts/cpu');
-const ram       = require('./scripts/ram');
-const storage   = require('./scripts/storage');
-const net       = require('./scripts/network');
-const utils     = require('./scripts/utils');
+const io          = require('socket.io')(server.listener);
+const cpu         = require('./scripts/cpu');
+const ram         = require('./scripts/ram');
+const storage     = require('./scripts/storage');
+const net         = require('./scripts/network');
+const utils       = require('./scripts/utils');
+const apt         = require('./scripts/apt');
+const ifconfig    = require('./scripts/net/ifconfig');
+const netSettings = require('./scripts/settings/net');
 
 io.sockets.on('connection', (socket) => {
 
@@ -119,7 +122,40 @@ io.sockets.on('connection', (socket) => {
     socket.intervals.push(i);
   });
 
+  /* Settings - network */
+  socket.on('subscribeToNetInterfaces', (cb) => {
+    cb(netSettings.getInterfaces());
+  });
+
+  socket.on('subscribeToWifiScan', (iface, cb) => {
+    cb(netSettings.scanNetworks(iface));
+  });
+
+  socket.on('subscribeToConnectWifi', (data, cb) => {
+    cb(netSettings.connectWifi(data));
+  });
+
+  /* Settings - update */
+  socket.on('subscribeToLastUpdate', (cb) => {
+    cb(apt.getLastUpdate());
+  });
+
+  socket.on('subscribeToUpdates', (cb) => {
+    cb(apt.update());
+  });
+
+  socket.on('subscribeToCheckUpgrades', (cb) => {
+    cb(apt.checkUpgrades());
+  });
+
+  socket.on('subscribeToUpgrade', (cb) => {
+    cb(apt.upgrade());
+  });
+
   socket.on('unsubscribe', () => {
+    socket.intervals.forEach(i => {
+      clearInterval(i);
+    });
     socket.intervals = [];
   });
 
