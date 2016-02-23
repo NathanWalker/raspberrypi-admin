@@ -19,13 +19,8 @@ export class CpuInfo {
   }
 
   init(): void {
-    this.socketConnection.emit('subscribeToCpuData', (data) => {
-      this.cpuInfo = data;
-    });
+    this.socketConnection.emit('subscribeToCpuData', (data) => { this.cpuInfo = data; });
   }
 
-  ngOnDestroy(): void {
-    this.socketConnection.emit('unsubscribe');
-  }
-
+  ngOnDestroy(): void { this.socketConnection.emit('unsubscribe'); }
 }

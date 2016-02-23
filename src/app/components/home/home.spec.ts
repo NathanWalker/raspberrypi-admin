@@ -18,10 +18,8 @@ describe('Home Component', () => {
   beforeEachProviders(() => []);
 
 
-  it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(Home).then((fixture) => {
-      fixture.detectChanges();
-    });
-  }));
+  it('should ...', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+       return tcb.createAsync(Home).then((fixture) => { fixture.detectChanges(); });
+     }));
 
 });

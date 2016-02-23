@@ -13,7 +13,5 @@ import {CpuInfo} from '../cpu-info/cpu-info';
   pipes: []
 })
 export class DashboardCpu {
-
   constructor() {}
-
 }

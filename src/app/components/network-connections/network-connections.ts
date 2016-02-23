@@ -14,5 +14,4 @@ export class NetworkConnections {
   data: any;
 
   constructor() {}
-
 }

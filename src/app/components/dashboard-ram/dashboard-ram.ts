@@ -24,13 +24,8 @@ export class DashboardRam {
   init(): void {
     this.socketConnection.emit('subscribeToMemoryInfo');
 
-    this.socketConnection.on('getMemoryInfo', (data) => {
-      this.data = data;
-    });
+    this.socketConnection.on('getMemoryInfo', (data) => { this.data = data; });
   }
 
-  ngOnDestroy(): void {
-    this.socketConnection.emit('unsubscribe');
-  }
-
+  ngOnDestroy(): void { this.socketConnection.emit('unsubscribe'); }
 }

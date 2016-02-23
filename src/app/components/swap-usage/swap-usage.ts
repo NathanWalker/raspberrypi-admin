@@ -1,15 +1,15 @@
 /// <reference path="../../../typings/smoothie.d.ts" />
-import {Component, OnChanges} from 'angular2/core';
+import {Component, OnInit, OnChanges} from 'angular2/core';
 import * as smoothie from 'smoothie';
 
 @Component({
-    selector: 'swap-usage',
-    templateUrl: 'app/components/swap-usage/swap-usage.html',
-    styleUrls: ['app/components/swap-usage/swap-usage.css'],
-    providers: [],
-    directives: [],
-    pipes: [],
-    inputs: ['data']
+  selector: 'swap-usage',
+  templateUrl: 'app/components/swap-usage/swap-usage.html',
+  styleUrls: ['app/components/swap-usage/swap-usage.css'],
+  providers: [],
+  directives: [],
+  pipes: [],
+  inputs: ['data']
 })
 export class SwapUsage {
   socketConnection: any;
@@ -26,21 +26,26 @@ export class SwapUsage {
       minValue: 0,
       maxValue: swap.total,
       grid: {
-        strokeStyle: 'rgb(255, 255, 255)', fillStyle: 'rgb(237, 247, 253)',
-        lineWidth: 1, millisPerLine: 250, verticalSections: 6
+        strokeStyle: 'rgb(255, 255, 255)',
+        fillStyle: 'rgb(237, 247, 253)',
+        lineWidth: 1,
+        millisPerLine: 250,
+        verticalSections: 6
       },
-      labels: { fillStyle: 'rgb(0, 0, 0)' }
+      labels: {fillStyle: 'rgb(0, 0, 0)'}
     });
 
     this.sc.streamTo(document.getElementById('swap-usage'), 1000);
 
-    this.sc.addTimeSeries(this.line1, {
-      strokeStyle: 'rgb(237, 108, 99)', fillStyle: 'rgba(237, 108, 99, 0.4)', lineWidth: 3
-    });
+    this.sc.addTimeSeries(
+        this.line1,
+        {strokeStyle: 'rgb(237, 108, 99)', fillStyle: 'rgba(237, 108, 99, 0.4)', lineWidth: 3});
   }
 
   ngOnChanges(): void {
-    if (!this.data) { return; }
+    if (!this.data) {
+      return;
+    }
     if (!this.sc) {
       this.init(this.data.swap);
     }
@@ -52,5 +57,4 @@ export class SwapUsage {
 
     this.line1.append(new Date().getTime(), this.data.swap.used);
   }
-
 }

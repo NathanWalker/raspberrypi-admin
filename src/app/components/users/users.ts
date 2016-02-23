@@ -13,7 +13,5 @@ import {Footer} from '../footer/footer';
   pipes: []
 })
 export class Users {
-
   constructor() {}
-
 }

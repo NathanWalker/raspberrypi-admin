@@ -18,10 +18,8 @@ describe('CpuUsage Component', () => {
   beforeEachProviders(() => []);
 
 
-  it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(CpuUsage).then((fixture) => {
-      fixture.detectChanges();
-    });
-  }));
+  it('should ...', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+       return tcb.createAsync(CpuUsage).then((fixture) => { fixture.detectChanges(); });
+     }));
 
 });

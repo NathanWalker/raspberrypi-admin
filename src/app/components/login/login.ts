@@ -30,23 +30,20 @@ export class Login {
     this.loading = true;
     this.invalidCredentials = false;
 
-    this.auth.login(this.user).then(res => {
-      this.loading = false;
-      if (res) {
-        this.router.navigate(['Home']);
-      }
-    }, () => {
-      this.loading = false;
-      this.invalidCredentials = true;
-    });
+    this.auth.login(this.user).then(
+        res => {
+          this.loading = false;
+          if (res) {
+            this.router.navigate(['Home']);
+          }
+        },
+        () => {
+          this.loading = false;
+          this.invalidCredentials = true;
+        });
   }
 
-  formValid(): boolean {
-    return !!this.user.username.length && !!this.user.password.length;
-  }
+  formValid(): boolean { return !!this.user.username.length && !!this.user.password.length; }
 
-  closeMessage(): void {
-    this.invalidCredentials = false;
-  }
-
+  closeMessage(): void { this.invalidCredentials = false; }
 }

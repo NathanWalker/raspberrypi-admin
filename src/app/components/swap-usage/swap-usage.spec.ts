@@ -18,10 +18,8 @@ describe('SwapUsage Component', () => {
   beforeEachProviders(() => []);
 
 
-  it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(SwapUsage).then((fixture) => {
-      fixture.detectChanges();
-    });
-  }));
+  it('should ...', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+       return tcb.createAsync(SwapUsage).then((fixture) => { fixture.detectChanges(); });
+     }));
 
 });

@@ -64,8 +64,7 @@ export class SettingsNetwork {
       if (data) {
         this.closeModals();
         this.getInterfaces();
-      }
-      else {
+      } else {
         this.wifiConnecting = false;
       }
     });
@@ -75,5 +74,4 @@ export class SettingsNetwork {
     this.WLANStationConfig = false;
     this.WLANWizardsModal = false;
   }
-
 }

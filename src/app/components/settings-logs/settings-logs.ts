@@ -10,7 +10,5 @@ import {Component} from 'angular2/core';
   pipes: []
 })
 export class SettingsLogs {
-
   constructor() {}
-
 }

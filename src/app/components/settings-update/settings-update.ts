@@ -40,8 +40,7 @@ export class SettingsUpdate {
         this.responseData = data;
         if (this.responseData.length) {
           this.upgradeButton = true;
-        }
-        else {
+        } else {
           this.systemUpdated = true;
         }
       });
@@ -58,5 +57,4 @@ export class SettingsUpdate {
       this.isDone = true;
     });
   }
-
 }

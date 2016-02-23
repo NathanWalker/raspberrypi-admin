@@ -18,10 +18,8 @@ describe('SettingsFirewall Component', () => {
   beforeEachProviders(() => []);
 
 
-  it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(SettingsFirewall).then((fixture) => {
-      fixture.detectChanges();
-    });
-  }));
+  it('should ...', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+       return tcb.createAsync(SettingsFirewall).then((fixture) => { fixture.detectChanges(); });
+     }));
 
 });

@@ -18,8 +18,9 @@ describe('Socket Service', () => {
   beforeEachProviders(() => [Socket]);
 
 
-  it('should ...', inject([Socket], (service:Socket) => {
+  it('should ...', inject(
+                       [Socket], (service: Socket) => {
 
-  }));
+                                 }));
 
 });

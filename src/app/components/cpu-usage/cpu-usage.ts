@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/smoothie.d.ts" />
-import {Component, OnDestroy} from 'angular2/core';
+import {Component, OnInit, OnDestroy} from 'angular2/core';
 import {Socket} from '../../services/socket/socket';
 import * as smoothie from 'smoothie';
 
@@ -19,20 +19,27 @@ export class CpuUsage {
     minValue: 0,
     maxValue: 100,
     grid: {
-      strokeStyle: 'rgb(255, 255, 255)', fillStyle: 'rgb(237, 247, 253)',
-      lineWidth: 1, millisPerLine: 250, verticalSections: 6
+      strokeStyle: 'rgb(255, 255, 255)',
+      fillStyle: 'rgb(237, 247, 253)',
+      lineWidth: 1,
+      millisPerLine: 250,
+      verticalSections: 6
     },
-    labels: { fillStyle: 'rgb(0, 0, 0)' }
+    labels: {fillStyle: 'rgb(0, 0, 0)'}
   });
   line1: any = new smoothie.TimeSeries();
 
   constructor(public socket: Socket) {
     this.socketConnection = this.socket.getConnection();
-
+  }
+  
+  ngOnInit(): void {
     this.sc.streamTo(document.getElementById('cpu-usage'), 1000);
 
-    this.sc.addTimeSeries(this.line1, { 
-      strokeStyle: 'rgb(151, 205, 118)', fillStyle: 'rgba(151, 205, 118, 0.4)', lineWidth: 3 
+    this.sc.addTimeSeries(this.line1, {
+      strokeStyle: 'rgb(151, 205, 118)', 
+      fillStyle: 'rgba(151, 205, 118, 0.4)', 
+      lineWidth: 3
     });
 
     this.init();
@@ -48,8 +55,5 @@ export class CpuUsage {
     });
   }
 
-  ngOnDestroy(): void {
-    this.socketConnection.emit('unsubscribe');
-  }
-
+  ngOnDestroy(): void { this.socketConnection.emit('unsubscribe'); }
 }

@@ -16,13 +16,11 @@ import {DashboardNet} from '../dashboard-net/dashboard-net';
   pipes: []
 })
 @RouteConfig([
-  { path: '/cpu', name: 'DashboardCpu', component: DashboardCpu, useAsDefault: true },
-  { path: '/ram', name: 'DashboardRam', component: DashboardRam },
-  { path: '/storage', name: 'DashboardStorage', component: DashboardStorage },
-  { path: '/net', name: 'DashboardNet', component: DashboardNet }
+  {path: '/cpu', name: 'DashboardCpu', component: DashboardCpu, useAsDefault: true},
+  {path: '/ram', name: 'DashboardRam', component: DashboardRam},
+  {path: '/storage', name: 'DashboardStorage', component: DashboardStorage},
+  {path: '/net', name: 'DashboardNet', component: DashboardNet}
 ])
 export class Dashboard {
-
   constructor() {}
-
 }

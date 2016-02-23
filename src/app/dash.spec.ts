@@ -3,7 +3,7 @@ import {DashApp} from '../app/dash';
 
 beforeEachProviders(() => [DashApp]);
 
-describe('App: Dash', () => {
-  
-});
+describe(
+    'App: Dash', () => {
 
+                 });

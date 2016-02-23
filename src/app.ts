@@ -4,8 +4,4 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 import {DashApp} from './app/dash';
 import {Config} from './app/services/config/config';
 
-bootstrap(DashApp, [
-  ROUTER_PROVIDERS,
-  HTTP_PROVIDERS,
-  Config
-]);
+bootstrap(DashApp, [ROUTER_PROVIDERS, HTTP_PROVIDERS, Config]);

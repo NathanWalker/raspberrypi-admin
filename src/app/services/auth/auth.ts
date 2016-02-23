@@ -28,14 +28,14 @@ export class Auth {
   login(user: User): Promise<any> {
     return new Promise((resolve, reject) => {
       this.http.post(this.url + '/api/auth/check-login', JSON.stringify(user))
-        .map(res => res.json())
-        .subscribe(data => {
-          if (this.processLogin(data)) {
-            resolve(true);
-          } else {
-            reject(false);
-          }
-        });
+          .map(res => res.json())
+          .subscribe(data => {
+            if (this.processLogin(data)) {
+              resolve(true);
+            } else {
+              reject(false);
+            }
+          });
     });
   }
 
@@ -46,8 +46,7 @@ export class Auth {
       localStorage.setItem('PI_id_token', data.jwt);
       this.user = new User(decodedToken);
       return true;
-    } 
-    else {
+    } else {
       return false;
     }
   }
@@ -58,12 +57,7 @@ export class Auth {
     this.user = new User();
   }
 
-  getUserData(): User {
-    return this.user;
-  }
+  getUserData(): User { return this.user; }
 
-  isLoggedIn(): boolean {
-    return this.user && this.user.username !== null;
-  }
-
+  isLoggedIn(): boolean { return this.user && this.user.username !== null; }
 }

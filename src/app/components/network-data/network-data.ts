@@ -17,16 +17,21 @@ export class NetworkData {
   constructor() {}
 
   ngOnChanges(): void {
-    if (!this.data) { return; }
+    if (!this.data) {
+      return;
+    }
 
     if (!this.scs.length) {
       this.data.forEach((iface, i) => {
         let sc = new smoothie.SmoothieChart({
           grid: {
-            strokeStyle: 'rgb(255, 255, 255)', fillStyle: 'rgb(237, 247, 253)',
-            lineWidth: 1, millisPerLine: 250, verticalSections: 6
+            strokeStyle: 'rgb(255, 255, 255)',
+            fillStyle: 'rgb(237, 247, 253)',
+            lineWidth: 1,
+            millisPerLine: 250,
+            verticalSections: 6
           },
-          labels: { fillStyle: 'rgb(0, 0, 0)' }
+          labels: {fillStyle: 'rgb(0, 0, 0)'}
         });
 
         this.scs.push(sc);
@@ -40,11 +45,15 @@ export class NetworkData {
           sc.streamTo(document.getElementById('' + i + ''), 1000);
 
           sc.addTimeSeries(sc.downloadLine, {
-            strokeStyle: 'rgb(151, 205, 118)', fillStyle: 'rgba(151, 205, 118, 0.4)', lineWidth: 3 
+            strokeStyle: 'rgb(151, 205, 118)',
+            fillStyle: 'rgba(151, 205, 118, 0.4)',
+            lineWidth: 3
           });
 
           sc.addTimeSeries(sc.uploadLine, {
-            strokeStyle: 'rgb(237, 108, 99)', fillStyle: 'rgba(237, 108, 99, 0.4)', lineWidth: 3
+            strokeStyle: 'rgb(237, 108, 99)',
+            fillStyle: 'rgba(237, 108, 99, 0.4)',
+            lineWidth: 3
           });
         });
       });
@@ -54,16 +63,12 @@ export class NetworkData {
       this.scs[i].downloadLine.append(new Date().getTime(), parseInt(iface.download_speed, 10));
       this.scs[i].uploadLine.append(new Date().getTime(), parseInt(iface.upload_speed, 10));
     });
-
   }
 
-  getRandomHexPart(): number {
-    return Math.random() * (256 - 1) + 1;
-  }
+  getRandomHexPart(): number { return Math.random() * (256 - 1) + 1; }
 
   getRandomHex(): string {
-    return 'rgb(' + this.getRandomHexPart() + ', ' +
-      this.getRandomHexPart() + ', ' + this.getRandomHexPart() + ')';
+    return 'rgb(' + this.getRandomHexPart() + ', ' + this.getRandomHexPart() + ', ' +
+        this.getRandomHexPart() + ')';
   }
-
 }

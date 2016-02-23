@@ -8,12 +8,7 @@ export class Config {
   api_port: string = '22210';
   api_url: string;
 
-  constructor() {
-    this.api_url = this.api_proto + this.api_hostname + ':' + this.api_port;
-  }
+  constructor() { this.api_url = this.api_proto + this.api_hostname + ':' + this.api_port; }
 
-  getApiUrl(): string {
-    return this.api_url;
-  }
-
+  getApiUrl(): string { return this.api_url; }
 }

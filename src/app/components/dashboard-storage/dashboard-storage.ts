@@ -22,13 +22,8 @@ export class DashboardStorage {
   init(): void {
     this.socketConnection.emit('subscribeToStorageData');
 
-    this.socketConnection.on('getStorageData', (data) => {
-      this.storageData = data;
-    });
+    this.socketConnection.on('getStorageData', (data) => { this.storageData = data; });
   }
 
-  ngOnDestroy(): void {
-    this.socketConnection.emit('unsubscribe');
-  }
-
+  ngOnDestroy(): void { this.socketConnection.emit('unsubscribe'); }
 }

@@ -18,10 +18,8 @@ describe('RamUsage Component', () => {
   beforeEachProviders(() => []);
 
 
-  it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(RamUsage).then((fixture) => {
-      fixture.detectChanges();
-    });
-  }));
+  it('should ...', injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+       return tcb.createAsync(RamUsage).then((fixture) => { fixture.detectChanges(); });
+     }));
 
 });

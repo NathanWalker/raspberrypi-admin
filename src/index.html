@@ -8,6 +8,7 @@
   {{content-for 'head'}}
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/materialdesignicons.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bulma.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/app.css">
 </head>
@@ -23,8 +24,18 @@
     </section>
   </dash-app>
 
-  <script src="thirdparty/vendor.js"></script>
+  <script src="vendor/es6-shim/es6-shim.js"></script>
+  <script src="vendor/systemjs/dist/system-polyfills.js"></script>
+  <script src="vendor/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="vendor/systemjs/dist/system.src.js"></script>
+  <script src="vendor/rxjs/bundles/Rx.js"></script>
+
+  <script src="vendor/angular2/bundles/angular2.dev.js"></script>
+  <script src="vendor/angular2/bundles/http.dev.js"></script>
+  <script src="vendor/angular2/bundles/router.dev.js"></script>
+  
   <script src="thirdparty/libs.js"></script>
+  <script src="assets/js/socket.io.js"></script>
   <script>
     System.config({
       packages: {

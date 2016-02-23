@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from 'angular2/core';
+import {Component, OnInit, OnDestroy} from 'angular2/core';
 import {Socket} from '../../services/socket/socket';
 import {NetworkData} from '../network-data/network-data';
 import {NetworkConnections} from '../network-connections/network-connections';
@@ -18,29 +18,15 @@ export class DashboardNet {
 
   constructor(public socket: Socket) {
     this.socketConnection = this.socket.getConnection();
-    this.init();
   }
-
-  init(): void {
+  
+  ngOnInit(): void {
     this.socketConnection.emit('subscribeToNetworkInfo');
-
-    this.socketConnection.on('getNetworkInfo', (data) => {
-      this.networkData = data;
-    });
-
-    this.socketConnection.on('getNetworkSpeed', (data) => {
-      this.networkData = data;
-    });
-
+    this.socketConnection.on('getNetworkInfo', (data) => { this.networkData = data; });
+    this.socketConnection.on('getNetworkSpeed', (data) => { this.networkData = data; });
     this.socketConnection.emit('subscribeToNetworkConnections');
-
-    this.socketConnection.on('getNetworkConnections', (data) => {
-      this.connectionsData = data;
-    });
+    this.socketConnection.on('getNetworkConnections', (data) => { this.connectionsData = data; }); 
   }
 
-  ngOnDestroy(): void {
-    this.socketConnection.emit('unsubscribe');
-  }
-
+  ngOnDestroy(): void { this.socketConnection.emit('unsubscribe'); }
 }

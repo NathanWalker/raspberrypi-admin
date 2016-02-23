@@ -15,7 +15,7 @@ import {PrettyTime} from '../../pipes/pretty-time/pretty-time';
 })
 export class Home {
   socketConnection: any;
-  uptime: number = 0; 
+  uptime: number = 0;
   osinfo: Object = {};
 
   constructor(public socket: Socket) {
@@ -26,14 +26,9 @@ export class Home {
   init(): void {
     this.socketConnection.emit('subscribeToUptime', (uptime) => {
       this.uptime = uptime;
-      setInterval(() => {
-        this.uptime += 1;
-      }, 1000);
+      setInterval(() => { this.uptime += 1; }, 1000);
     });
 
-    this.socketConnection.emit('subscribeToOSInfo', (osinfo) => {
-      this.osinfo = osinfo;
-    });
+    this.socketConnection.emit('subscribeToOSInfo', (osinfo) => { this.osinfo = osinfo; });
   }
-
 }

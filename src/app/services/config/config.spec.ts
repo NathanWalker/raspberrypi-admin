@@ -18,8 +18,9 @@ describe('Config Service', () => {
   beforeEachProviders(() => [Config]);
 
 
-  it('should ...', inject([Config], (service:Config) => {
+  it('should ...', inject(
+                       [Config], (service: Config) => {
 
-  }));
+                                 }));
 
 });

@@ -11,12 +11,10 @@ import {Auth} from '../../services/auth/auth';
   pipes: []
 })
 export class Header {
-
-  constructor(public auth: Auth, public router: Router) { }
+  constructor(public auth: Auth, public router: Router) {}
 
   logout(): void {
     this.auth.logout();
     this.router.navigate(['Login']);
   }
-
 }

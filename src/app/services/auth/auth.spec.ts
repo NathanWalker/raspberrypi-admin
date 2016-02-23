@@ -18,8 +18,9 @@ describe('Auth Service', () => {
   beforeEachProviders(() => [Auth]);
 
 
-  it('should ...', inject([Auth], (service:Auth) => {
+  it('should ...', inject(
+                       [Auth], (service: Auth) => {
 
-  }));
+                               }));
 
 });

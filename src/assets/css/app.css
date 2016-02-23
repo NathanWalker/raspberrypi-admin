@@ -1,3 +1,17 @@
+body {
+  background: #fff;
+}
+
+.side-menu {
+  margin-bottom: 50px;
+}
+
+.menu-heading {
+  background: #fff;
+  color: #42afe3;
+  font-weight: bold;
+}
+
 .logo-center {
   width: 150px;
   margin: 0 auto 20px auto;
@@ -46,6 +60,7 @@ p.small i {
 
 i.big-icon {
   font-size: 120px;
+  padding-left: 17px;
   margin: 20px auto;
 }
 
@@ -77,6 +92,10 @@ i.info-icon {
   margin-left: 10px;
 }
 
+.section-no-padding {
+  padding: 5px 0 35px 0;
+}
+
 .pad-tag {
   padding: 10px 10px 32px 10px;
   line-height: 26px;
@@ -94,4 +113,8 @@ i.info-icon {
 
 .clickable {
   cursor: pointer;
+}
+
+.font-white {
+  color: #fff;
 }

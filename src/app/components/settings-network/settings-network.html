@@ -1,20 +1,22 @@
-<h3 class="title is-3 is-text-centered">Network Interfaces</h3>
+<h4 class="title is-4 is-text-centered">Network Interfaces</h4>
 
-<button class="button centered" (click)="getInterfaces()" *ngIf="!loading">
-  <i class="fa fa-refresh"></i> Refresh
-</button>
+<section class="section section-no-padding">
+  <button class="button is-pulled-right" (click)="getInterfaces()" *ngIf="!loading">
+    <i class="mdi mdi-reload"></i> Refresh
+  </button>
 
-<button class="button centered is-loading" *ngIf="loading">
-  <i class="fa fa-refresh"></i> Refresh
-</button>        
+  <button class="button is-pulled-right is-loading" *ngIf="loading">
+    <i class="mdi mdi-reload"></i> Refresh
+  </button>
+</section>
 
-<div class="columns is-multiline mtop5" *ngIf="!loading">
+<div class="columns is-multiline mtop5">
   <div class="column is-6" *ngFor="#i of interfaces; #idx = index;">
-    <div class="message shadow bg-white">
+    <div class="message is-info shadow">
       <div class="message-header">
         {{ i.iface }} 
       </div>
-      <div class="message-body">
+      <div class="message-body bg-white">
 
         <div class="columns" *ngIf="i.link !== 'Local'">
           <div class="column is-4">
@@ -103,7 +105,7 @@
           <div class="column is-12">
             <button class="button is-warning is-pulled-left" (click)="WLANWizardsButton(i.iface)" *ngIf="i.wlan === 'true'">
               <i class="fa fa-magic icon"></i>
-              Wizards
+              Configure
             </button>
             <button class="button is-success is-pulled-right mleft10">
               <i class="fa fa-check icon"></i>
@@ -143,7 +145,7 @@
                   Connect to Wifi
                 </div>
                 <div class="message-body bg-white">
-                  <i class="fa fa-external-link-square big-icon centered danger-icon"></i>
+                  <i class="mdi mdi-wifi big-icon centered danger-icon"></i>
                   <p class="is-text-centered">Configure connection</p>
                 </div>
               </div>
@@ -154,7 +156,7 @@
                   Access Point
                 </div>
                 <div class="message-body bg-white">
-                  <i class="fa fa-wifi big-icon centered success-icon"></i>
+                  <i class="mdi mdi-access-point-network big-icon centered success-icon"></i>
                   <p class="is-text-centered">Configure AP</p>
                 </div>
               </div>
@@ -165,7 +167,7 @@
                   Wifi Repetitor
                 </div>
                 <div class="message-body bg-white">
-                  <i class="fa fa-repeat big-icon centered info-icon"></i>
+                  <i class="mdi mdi-access-point big-icon centered info-icon"></i>
                   <p class="is-text-centered">Configure Station + AP</p>
                 </div>
               </div>
