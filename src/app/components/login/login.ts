@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {FORM_DIRECTIVES} from 'angular2/common';
 import {Footer} from '../footer/footer';
 import {Router} from 'angular2/router';
 import {Auth} from '../../services/auth/auth';
@@ -10,7 +11,7 @@ import {User} from '../../models/user';
   templateUrl: 'app/components/login/login.html',
   styleUrls: ['app/components/login/login.css'],
   providers: [Auth],
-  directives: [Footer],
+  directives: [Footer, FORM_DIRECTIVES],
   pipes: []
 })
 export class Login {
@@ -26,7 +27,7 @@ export class Login {
     }
   }
 
-  login(): void {
+  login(): boolean {
     this.loading = true;
     this.invalidCredentials = false;
 
@@ -41,6 +42,7 @@ export class Login {
           this.loading = false;
           this.invalidCredentials = true;
         });
+    return false;
   }
 
   formValid(): boolean { return !!this.user.username.length && !!this.user.password.length; }

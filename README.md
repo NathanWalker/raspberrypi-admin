@@ -37,6 +37,18 @@ There is a lot of features comming all available via web interface.
 
 If you have any ideas please share it under the issues.
 
+## Contributing
+
+```
+npm install
+
+sudo api/server.js // in one terminal window (must be run sudo)
+ng serve // in another terminal window
+```
+
+Please add unit tests for any new features and make sure all tests pass before submitting pull requests.
+
+
 ## Licence
 
 [MIT](LICENSE)
